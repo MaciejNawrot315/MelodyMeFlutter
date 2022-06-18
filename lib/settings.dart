@@ -48,11 +48,11 @@ class _MySettingsPageState extends State<MySettingsPage> {
                   .map(
                     (e) => e,
                   )
-                  .toList();
+                  .toList() as List<int>;
             });
           },
-          colorator: (p0) => getColor(
-              p0), //color the options based on their corresponding color of the note
+          colorator: (p0) => getColor(p0
+              as int), //color the options based on their corresponding color of the note
         );
       },
     );

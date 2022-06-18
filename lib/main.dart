@@ -231,7 +231,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
       if (!mounted)
         return; //checks if the state object is still in the tree(user can swipe the page mid melody, wich causes the page to be disposed)
-      fm.playMidiNote(midi: currentSound); //play the sound
+      if (currentSound >= 0) {
+        fm.playMidiNote(midi: currentSound);
+      } //play the sound
       setState(() {
         //updating the size of the note containers
         currentMelody.notesList[i].played = true;
@@ -252,7 +254,9 @@ class _MyHomePageState extends State<MyHomePage> {
           Duration(milliseconds: delay * currentMelody.notesList[i].duration));
 
       if (!mounted) return;
-      fm.stopMidiNote(midi: currentSound); //stop playing the note
+      if (currentSound >= 0) {
+        fm.stopMidiNote(midi: currentSound);
+      } //stop playing the note
 
       setState(() {
         currentMelody.notesList[i].played = false;
